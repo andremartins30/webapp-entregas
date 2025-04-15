@@ -46,8 +46,8 @@ export default function Entregas() {
     const getStatusClass = (status: string) => {
         const statusMap: Record<string, string> = {
             'PENDENTE': 'pendente',
-            'EM_ANDAMENTO': 'em-andamento',
-            'CONCLUIDO': 'concluido'
+            'EM_TRANSITO': 'em-andamento',
+            'ENTREGUE': 'concluido'
         };
         return statusMap[status] || 'pendente';
     };
@@ -55,8 +55,8 @@ export default function Entregas() {
     const getStatusText = (status: string) => {
         const statusMap: Record<string, string> = {
             'PENDENTE': 'Pendente',
-            'EM_ANDAMENTO': 'Em Andamento',
-            'CONCLUIDO': 'Concluído'
+            'EM_TRANSITO': 'Em Andamento',
+            'ENTREGUE': 'Concluído'
         };
         return statusMap[status] || status;
     };
@@ -90,12 +90,13 @@ export default function Entregas() {
                     entregas.map(entrega => (
                         <div key={entrega.id} className="entrega-card">
                             <h3>Entrega #{entrega.id}</h3>
+                            <p><strong>Destinatário:</strong></p>
                             <p><strong>Destino:</strong> {entrega.destino}</p>
+
                             <span className={`status ${getStatusClass(entrega.status)}`}>
                                 {getStatusText(entrega.status)}
                             </span>
-                            <p>Criada em: {formatarData(entrega.criadaEm)}</p>
-                            <p>Última atualização: {formatarData(entrega.atualizadaEm)}</p>
+                            <p>Última Movimentação: {formatarData(entrega.atualizadaEm)}</p>
                         </div>
                     ))
                 )}
