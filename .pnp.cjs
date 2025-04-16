@@ -32,7 +32,7 @@ const RAW_RUNTIME_STATE =
           ["@eslint/js", "npm:9.24.0"],\
           ["@hookform/resolvers", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:5.0.1"],\
           ["@mui/material", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:5.15.10"],\
-          ["@types/axios", "npm:0.14.4"],\
+          ["@types/axios", "npm:0.9.36"],\
           ["@types/node", "npm:22.14.1"],\
           ["@types/react", "npm:19.1.2"],\
           ["@types/react-dom", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:19.1.2"],\
@@ -40,6 +40,7 @@ const RAW_RUNTIME_STATE =
           ["@vitejs/plugin-react", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:4.4.0"],\
           ["autoprefixer", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:10.4.21"],\
           ["axios", "npm:1.8.4"],\
+          ["bcryptjs", "npm:3.0.2"],\
           ["eslint", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:9.24.0"],\
           ["eslint-plugin-react-hooks", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:5.2.0"],\
           ["eslint-plugin-react-refresh", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:0.4.19"],\
@@ -1910,11 +1911,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/axios", [\
-      ["npm:0.14.4", {\
-        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/@types-axios-npm-0.14.4-9e6e2aaf07-10c0.zip/node_modules/@types/axios/",\
+      ["npm:0.9.36", {\
+        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/@types-axios-npm-0.9.36-fb66929a37-10c0.zip/node_modules/@types/axios/",\
         "packageDependencies": [\
-          ["@types/axios", "npm:0.14.4"],\
-          ["axios", "npm:1.8.4"]\
+          ["@types/axios", "npm:0.9.36"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2527,6 +2527,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/balanced-match-npm-1.0.2-a53c126459-10c0.zip/node_modules/balanced-match/",\
         "packageDependencies": [\
           ["balanced-match", "npm:1.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["bcryptjs", [\
+      ["npm:3.0.2", {\
+        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/bcryptjs-npm-3.0.2-14895420d7-10c0.zip/node_modules/bcryptjs/",\
+        "packageDependencies": [\
+          ["bcryptjs", "npm:3.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6539,7 +6548,7 @@ const RAW_RUNTIME_STATE =
           ["@eslint/js", "npm:9.24.0"],\
           ["@hookform/resolvers", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:5.0.1"],\
           ["@mui/material", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:5.15.10"],\
-          ["@types/axios", "npm:0.14.4"],\
+          ["@types/axios", "npm:0.9.36"],\
           ["@types/node", "npm:22.14.1"],\
           ["@types/react", "npm:19.1.2"],\
           ["@types/react-dom", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:19.1.2"],\
@@ -6547,6 +6556,7 @@ const RAW_RUNTIME_STATE =
           ["@vitejs/plugin-react", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:4.4.0"],\
           ["autoprefixer", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:10.4.21"],\
           ["axios", "npm:1.8.4"],\
+          ["bcryptjs", "npm:3.0.2"],\
           ["eslint", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:9.24.0"],\
           ["eslint-plugin-react-hooks", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:5.2.0"],\
           ["eslint-plugin-react-refresh", "virtual:e83ffd608c8fcec37479d3b180d1e7b7a6d1e9cd3d9b8c9b1b86c361b4a65e0dbc89809fb38e278f32a8bda0eb979343dc03ae1973cf2f89fffc03adcbc9184a#npm:0.4.19"],\

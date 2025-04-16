@@ -16,6 +16,7 @@
     "@mui/material": "5.15.10",
     "@types/react-router-dom": "5.3.3",
     "axios": "^1.8.4",
+    "bcryptjs": "^3.0.2",
     "npm": "^11.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

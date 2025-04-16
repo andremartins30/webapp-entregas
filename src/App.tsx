@@ -9,6 +9,7 @@ const Login = lazy(() => import('./pages/Auth/Login'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const Entregas = lazy(() => import('./pages/Entregas'));
 const Veiculos = lazy(() => import('./pages/Veiculos'));
+const Usuarios = lazy(() => import('./pages/Usuarios'));
 
 function PrivateRoute({ children }: { children: ReactNode }) {
   const { isAuthenticated, loading } = useAuth();
@@ -52,6 +53,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <Veiculos />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/usuarios"
+              element={
+                <PrivateRoute>
+                  <Usuarios />
                 </PrivateRoute>
               }
             />

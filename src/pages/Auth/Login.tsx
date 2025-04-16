@@ -13,7 +13,8 @@ export default function Login() {
         try {
             await signIn(email, password);
             navigate('/dashboard');
-        } catch {
+        } catch (error) {
+            console.error('Erro ao fazer login:', error);
             alert('Erro ao fazer login');
         }
     };

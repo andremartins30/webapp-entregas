@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 interface MainLayoutProps {
     children: ReactNode;
@@ -9,40 +9,40 @@ interface MainLayoutProps {
 export function MainLayout({ children }: MainLayoutProps) {
     const { signOut } = useAuth();
 
+    const linkClasses = ({ isActive }: { isActive: boolean }) =>
+        `inline-flex items-center justify-center w-24 px-4 py-2 border-b-2 text-sm font-medium whitespace-nowrap transition-colors duration-200 ${isActive
+            ? 'text-gray-900 border-gray-500'
+            : 'text-gray-500 hover:text-gray-900 border-transparent'
+        }`;
+
     return (
         <div className="min-h-screen bg-gray-100">
-            <nav className="bg-white shadow-sm">
+            <nav className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
-                        <div className="flex">
-                            <div className="flex-shrink-0 flex items-center">
-                                Coleta / Entrega
+                        <div className="flex items-center">
+                            <div className="flex-shrink-0 mr-8">
+                                <span className="text-lg font-semibold">Coleta / Entrega</span>
                             </div>
-                            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                                <Link
-                                    to="/dashboard"
-                                    className="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                                >
+                            <div className="flex space-x-4">
+                                <NavLink to="/dashboard" className={linkClasses}>
                                     Dashboard
-                                </Link>
-                                <Link
-                                    to="/entregas"
-                                    className="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium"
-                                >
+                                </NavLink>
+                                <NavLink to="/entregas" className={linkClasses}>
                                     Entregas
-                                </Link>
-                                <Link
-                                    to="/veiculos"
-                                    className="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium"
-                                >
+                                </NavLink>
+                                <NavLink to="/veiculos" className={linkClasses}>
                                     Veículos
-                                </Link>
+                                </NavLink>
+                                <NavLink to="/usuarios" className={linkClasses}>
+                                    Usuários
+                                </NavLink>
                             </div>
                         </div>
                         <div className="flex items-center">
                             <button
                                 onClick={signOut}
-                                className="text-gray-500 hover:text-gray-900"
+                                className="text-gray-500 hover:text-gray-900 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
                             >
                                 Sair
                             </button>
@@ -50,7 +50,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                     </div>
                 </div>
             </nav>
-            <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+            <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 mt-16">
                 {children}
             </main>
         </div>
