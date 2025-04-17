@@ -28,7 +28,7 @@ const Usuarios = () => {
             }
 
 
-            const response = await axios.post('http://localhost:3333/usuarios/register', {
+            await axios.post('http://localhost:3333/usuarios/register', {
                 nome: data.nome,
                 email: data.email,
                 password: data.password,
@@ -37,8 +37,12 @@ const Usuarios = () => {
 
             setSuccess(true);
             reset();
-        } catch (err: any) {
-            setError(err.response?.data?.message || 'Erro ao cadastrar usuário');
+        } catch (err: unknown) {
+            if (axios.isAxiosError(err) && err.response?.data?.message) {
+                setError(err.response.data.message);
+            } else {
+                setError('Erro ao cadastrar usuário');
+            }
         } finally {
             setLoading(false);
         }

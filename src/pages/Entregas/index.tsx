@@ -97,6 +97,7 @@ export default function Entregas() {
                                 {getStatusText(entrega.status)}
                             </span>
                             <p>Última Movimentação: {formatarData(entrega.atualizadaEm)}</p>
+                            <p>Entregador Responsável: {entrega.entregador?.nome}</p>
                         </div>
                     ))
                 )}

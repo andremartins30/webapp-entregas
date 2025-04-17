@@ -61,6 +61,9 @@ export default function Login() {
                     </div>
                 </form>
             </div>
+            <div>
+                <img src="../../assets/Vetor-entregas.jpg" alt="" />
+            </div>
         </div>
     );
 }

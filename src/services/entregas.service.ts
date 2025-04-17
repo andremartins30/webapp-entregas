@@ -7,6 +7,10 @@ export interface IEntrega {
     usuarioId?: number;
     criadaEm?: string;
     atualizadaEm?: string;
+    entregador?: {
+        id: number;
+        nome: string;
+    };
 }
 
 export class EntregasService {
@@ -20,6 +24,10 @@ export class EntregasService {
                 usuarioId?: number;
                 criadaEm?: string;
                 atualizadaEm?: string;
+                entregador?: {
+                    id: number;
+                    nome: string;
+                };
             };
 
             return response.data.map((item: ApiEntrega) => ({
@@ -28,7 +36,11 @@ export class EntregasService {
                 status: item.status as IEntrega['status'],
                 usuarioId: item.usuarioId ? Number(item.usuarioId) : undefined,
                 criadaEm: item.criadaEm ? String(item.criadaEm) : undefined,
-                atualizadaEm: item.atualizadaEm ? String(item.atualizadaEm) : undefined
+                atualizadaEm: item.atualizadaEm ? String(item.atualizadaEm) : undefined,
+                entregador: item.entregador ? {
+                    id: Number(item.entregador.id),
+                    nome: String(item.entregador.nome)
+                } : undefined,
             }));
         } catch (error) {
             console.error('Erro ao listar entregas:', error);
