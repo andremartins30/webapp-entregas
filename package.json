@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "vercel-build": "yarn build"
+    "vercel-build": "corepack enable && corepack prepare yarn@4.8.1 --activate && yarn install && yarn build"
   },
   "dependencies": {
     "@emotion/react": "11.11.3",
