@@ -18,8 +18,8 @@
     "axios": "^1.8.4",
     "bcryptjs": "^3.0.2",
     "npm": "^11.3.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-hook-form": "^7.55.0",
     "react-query": "^3.39.3",
     "react-router-dom": "6.22.0",
@@ -29,9 +29,9 @@
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@types/axios": "^0.9.36",
-    "@types/node": "^22.14.1",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
+    "@types/node": "^18.17.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.21.0",
@@ -44,5 +44,5 @@
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0"
   },
-  "packageManager": "yarn@4.8.1+sha512.bc946f2a022d7a1a38adfc15b36a66a3807a67629789496c3714dd1703d2e6c6b1c69ff9ec3b43141ac7a1dd853b7685638eb0074300386a59c18df351ef8ff6"
+  "packageManager": "yarn@4.8.1"
 }

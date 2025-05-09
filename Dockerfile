@@ -1,16 +1,20 @@
 # Estágio de build
-FROM node:20-alpine AS builder
+FROM node:18.17.0
 
 WORKDIR /app
+
+# Instalar corepack e yarn
+RUN corepack enable && \
+    corepack prepare yarn@4.8.1 --activate
 
 # Copiar arquivos de configuração
 COPY package.json yarn.lock .yarnrc.yml ./
 COPY .yarn ./.yarn
 
 # Instalar dependências
-RUN yarn install --immutable
+RUN yarn install
 
-# Copiar código fonte
+# Copiar o resto do código
 COPY . .
 
 # Build da aplicação
@@ -29,4 +33,10 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 
 # Comando para iniciar o nginx
-CMD ["nginx", "-g", "daemon off;"] 
+CMD ["nginx", "-g", "daemon off;"]
+
+# Expor a porta
+EXPOSE 4173
+
+# Comando para iniciar
+CMD ["yarn", "preview", "--host"] 
