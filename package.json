@@ -47,6 +47,6 @@
   },
   "packageManager": "yarn@4.8.1",
   "engines": {
-    "node": ">=18.17.0"
+    "node": "18.17.0"
   }
 }
