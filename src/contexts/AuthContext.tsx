@@ -18,12 +18,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     useEffect(() => {
         const loadStoredAuth = async () => {
             try {
+                // Inicializa o serviço de autenticação
+                authService.init();
+
+                // Verifica se há usuário autenticado
                 const currentUser = await authService.getCurrentUser();
                 if (currentUser) {
                     setUser(currentUser);
                 }
             } catch (error) {
-                console.error('Error loading auth:', error);
+                console.error('Erro ao carregar autenticação:', error);
+                // Em caso de erro, limpa a autenticação
+                authService.clearAuth();
             } finally {
                 setLoading(false);
             }
@@ -36,14 +42,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         try {
             const { user } = await authService.login(email, password);
             setUser(user);
-        } catch {
+        } catch (error) {
+            console.error('Erro na autenticação:', error);
             throw new Error('Erro na autenticação');
         }
     };
 
     const signOut = async () => {
-        await authService.logout();
-        setUser(null);
+        try {
+            await authService.logout();
+        } catch (error) {
+            console.error('Erro ao fazer logout:', error);
+        } finally {
+            setUser(null);
+        }
     };
 
     if (loading) {

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { EntregasService } from '../../services/entregas.service';
-import './styles.css';
 
 interface EntregasFormProps {
     onClose: () => void;

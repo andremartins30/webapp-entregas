@@ -1,6 +1,9 @@
 import { ReactNode } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { NavLink } from 'react-router-dom';
+import { Button } from '../ui/button';
+import { LogOut, Truck, Package, Users, BarChart3 } from 'lucide-react';
+import { cn } from '../../lib/utils';
 
 interface MainLayoutProps {
     children: ReactNode;
@@ -9,48 +12,63 @@ interface MainLayoutProps {
 export function MainLayout({ children }: MainLayoutProps) {
     const { signOut } = useAuth();
 
-    const linkClasses = ({ isActive }: { isActive: boolean }) =>
-        `inline-flex items-center justify-center w-24 px-4 py-2 border-b-2 text-sm font-medium whitespace-nowrap transition-colors duration-200 ${isActive
-            ? 'text-gray-900 border-gray-500'
-            : 'text-gray-500 hover:text-gray-900 border-transparent'
-        }`;
+    const navItems = [
+        { to: '/dashboard', icon: BarChart3, label: 'Dashboard' },
+        { to: '/entregas', icon: Package, label: 'Entregas' },
+        { to: '/veiculos', icon: Truck, label: 'Veículos' },
+        { to: '/usuarios', icon: Users, label: 'Usuários' },
+    ];
 
     return (
-        <div className="min-h-screen --background-color">
-            <nav className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between h-16">
-                        <div className="flex items-center">
-                            <div className="flex-shrink-0 mr-8">
-                                <span className="text-lg font-semibold">Coleta / Entrega</span>
-                            </div>
-                            <div className="flex space-x-4">
-                                <NavLink to="/dashboard" className={linkClasses}>
-                                    Dashboard
-                                </NavLink>
-                                <NavLink to="/entregas" className={linkClasses}>
-                                    Entregas
-                                </NavLink>
-                                <NavLink to="/veiculos" className={linkClasses}>
-                                    Veículos
-                                </NavLink>
-                                <NavLink to="/usuarios" className={linkClasses}>
-                                    Usuários
-                                </NavLink>
-                            </div>
+        <div className="min-h-screen bg-background">
+            {/* Header */}
+            <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+                <div className="container flex h-16 items-center">
+                    <div className="flex items-center space-x-8">
+                        <div className="flex items-center space-x-2">
+                            <Package className="h-6 w-6" />
+                            <span className="hidden font-bold sm:inline-block">
+                                Coleta / Entrega
+                            </span>
                         </div>
-                        <div className="flex items-center">
-                            <button
-                                onClick={signOut}
-                                className="text-gray-500 hover:text-gray-900 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-                            >
-                                Sair
-                            </button>
-                        </div>
+
+                        <nav className="flex items-center space-x-6 text-sm font-medium">
+                            {navItems.map((item) => (
+                                <NavLink
+                                    key={item.to}
+                                    to={item.to}
+                                    className={({ isActive }) =>
+                                        cn(
+                                            "flex items-center space-x-2 transition-colors hover:text-foreground/80",
+                                            isActive
+                                                ? "text-foreground"
+                                                : "text-foreground/60"
+                                        )
+                                    }
+                                >
+                                    <item.icon className="h-4 w-4" />
+                                    <span>{item.label}</span>
+                                </NavLink>
+                            ))}
+                        </nav>
+                    </div>
+
+                    <div className="ml-auto flex items-center space-x-4">
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={signOut}
+                            className="flex items-center space-x-2"
+                        >
+                            <LogOut className="h-4 w-4" />
+                            <span>Sair</span>
+                        </Button>
                     </div>
                 </div>
-            </nav>
-            <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 mt-16">
+            </header>
+
+            {/* Main Content */}
+            <main className="container mx-auto py-8">
                 {children}
             </main>
         </div>
